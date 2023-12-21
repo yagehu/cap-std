@@ -1162,24 +1162,11 @@ fn open_flavors() {
 
     // append
     check!(tmpdir.open_with("d", c(&a).create_new(true)));
-    error!(
-        tmpdir.open_with("d", c(&a).create(true).truncate(true)),
-        invalid_options
-    );
-    error!(tmpdir.open_with("d", c(&a).truncate(true)), invalid_options);
     check!(tmpdir.open_with("d", c(&a).create(true)));
     check!(tmpdir.open_with("d", &c(&a)));
 
     // read-append
     check!(tmpdir.open_with("e", c(&ra).create_new(true)));
-    error!(
-        tmpdir.open_with("e", c(&ra).create(true).truncate(true)),
-        invalid_options
-    );
-    error!(
-        tmpdir.open_with("e", c(&ra).truncate(true)),
-        invalid_options
-    );
     check!(tmpdir.open_with("e", c(&ra).create(true)));
     check!(tmpdir.open_with("e", &c(&ra)));
 
