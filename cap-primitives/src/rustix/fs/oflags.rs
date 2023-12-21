@@ -79,11 +79,7 @@ pub(crate) fn get_creation_mode(options: &OpenOptions) -> io::Result<OFlags> {
                 return Err(rustix::io::Errno::INVAL.into());
             }
         }
-        (_, true) => {
-            if options.truncate && !options.create_new {
-                return Err(rustix::io::Errno::INVAL.into());
-            }
-        }
+        (_, true) => {}
     }
 
     Ok(
